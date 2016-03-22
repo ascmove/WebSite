@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../static/echarts.js"></script>
+	<script src="../static/jquery-2.2.1.min.js"></script>
+	<script src="../static/show_charts.js"></script>
+	<style type="text/css">
+		div#lheader{background-color:#99bbbb;}
+		div#llist{background-color:#ffff99;width:100px;float:left;}
+		div#lboundary{background-color:#EEEEEE;float:left;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		function click(){
+			if(document.getElementById("main").style.display == "none")
+				document.getElementById("main").style.display = "block";
+			else document.getElementById("main").style.display = "none";
+		}
+		function click_2(){
+			if(document.getElementById("test").style.display == "none")
+				document.getElementById("test").style.display = "block";
+			else document.getElementById("test").style.display = "none";
+		}
+	</script>
+	<div id="lheader" style="height:100px"></div>
+	<div id="llist" style="width:250px;height=:897px;">
+		<table>
+			<tr href="javascript:click();">click this </tr></br>
+			<tr href="javascript:click_2()">click this</tr>
+		</table>
+	</div>
+	<div id="lboundary" style="left:3000px">
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="width:800px;height:800px;display:block"></div>
+		<p id="test">hello</p>	
+	</div>
+</body>
+</html>
