@@ -1,0 +1,6 @@
+#list_myhostpital{cursor:pointer}
+#list_edf_files{cursor:pointer;display:none}
+div#lheader{background-color:#99bbbb;border-style:solid;border-color:#f0ffff}
+div#llist{background-color:#ffff99;border-style:solid;border-color:#f0ffff;}
+div#lboundary{background-color:#EEEEEE;border-style:solid;border-color:#f0ffff}
+div#pages{background-color:#000000;height:20px}

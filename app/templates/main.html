@@ -10,12 +10,9 @@
 		<script src="../static/echarts.js"></script>
 		<script src="../static/jquery-2.2.1.min.js"></script>
 		<script src="../static/show_charts.js"></script>
+		<script src="../static/for_List.js"></script>
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<style type="text/css">
-			div#lheader{background-color:#99bbbb;}
-			div#llist{background-color:#ffff99;width:100px;float:left;}
-			div#lboundary{background-color:#EEEEEE;float:left;}
-		</style>
+		<link href="../static/for_List.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 <!--		<script type="text/javascript">
@@ -32,29 +29,31 @@
 		</script> -->
 		<div class="container-fluid">
 			<div id="lheader" style="height:100px"></div>
-			<div id="llist" style="width:250px;height=:897px;">
-				<table class="table table-hover table-condensed">
-					<tbody>
-						<tr>
-							<td id="myhostpital">clickthis</td>
-						</tr>
-						<tr>
-							<td>
-								<div>
-									<span>&nbsp;</span>
-									<span>&nbsp;</span>
-									clickthis
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div id="lboundary" >
-				<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-				<div id="main" style="left:150px;width:800px;height:800px;display:block"></div>
-				<p id="test">hello</p>	
-			</div>
+				<div class="row">
+					<div id="llist" class="col-md-2">
+						<table class="table table-hover table-condensed">
+							<tbody>
+								<tr>
+									<td id="list_myhostpital" onclick="myhostpital()">clickthis</td>
+								</tr>
+								<tr>
+									<td>
+										<div id="list_edf_files">
+											<span>&nbsp;</span>
+											<span>&nbsp;</span>
+											clickthis
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id="lboundary" class="col-md-10" >
+						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+						<div id="main" style="left:300px;width:800px;height:800px;display:block"></div>
+						<div id="pages">
+					</div>
+				</div>
 		</div>
 	</body>
 </html>
