@@ -2,7 +2,7 @@ import os
 import json
 list=[]
 def getfilename():
-    d = "D:\\project\\venv\\uploadfiles"
+    d = "D:\uploadfiles"
     I=os.listdir(d)
     for i in I:
 #        print i

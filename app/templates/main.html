@@ -16,7 +16,6 @@
 		<link href="../static/main.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div class="container-fluid">
 			<div id="lheader">
 					<ul class="nav nav-pills navbar-right navbar-nav main-navigation" style="padding-top:20px;padding-right:15px">
 						<li role="presentation">
@@ -27,6 +26,7 @@
 						</li>
 					</ul>
 			</div>
+		<div class="container-fluid">
 				<div class="row">
 					<div id="llist" class="col-md-2">
 						<table class="table table-hover table-condensed">
@@ -34,13 +34,13 @@
 								<tr>
 									<td id="list_myhostpital" onclick="myhostpital()">我的医院</td>
 								</tr>
-								{% for letter in 'python' %}
+								{% for file in files %}
 								<tr  class="list_edf_files" style="display:none">
 									<td>
 										<div>
 											<span>&nbsp;</span>
 											<span>&nbsp;</span>
-											{{letter}}
+											{{file}}
 										</div>
 									</td>
 								</tr>
