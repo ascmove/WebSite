@@ -11,22 +11,21 @@
 		<script src="../static/jquery-2.2.1.min.js"></script>
 		<script src="../static/show_charts.js"></script>
 		<script src="../static/for_List.js"></script>
+		<script src="../static/for_Page.js"></script>
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../static/for_List.css" rel="stylesheet" type="text/css">
+		<link href="../static/main.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div id="lheader" style="height:80px">
-				<div class="container-fluid" style="padding-top:20px">
-					<ul class="nav nav-pills navbar-right navbar-nav main-navigation">
+			<div id="lheader">
+					<ul class="nav nav-pills navbar-right navbar-nav main-navigation" style="padding-top:20px;padding-right:15px">
 						<li role="presentation">
 							<a href="#">me</a>
 						</li>
 						<li role="presentation">
-							<a href="#">quit</a>
+							<a href="#">退出登陆</a>
 						</li>
 					</ul>
-				</div>
 			</div>
 				<div class="row">
 					<div id="llist" class="col-md-2">
@@ -54,25 +53,26 @@
 						<div id="main" style="left:300px;width:800px;height:800px;display:block">
 						</div>
 						<div id="pages" class="container">
-							<nav>
-								<ul class="pagination pagination-sm">
-									<li>
-										<a href="#" aria-label="Previous">
-											<span aria-hidden="true">&laquo;</span>
-										</a>
-									</li>
-									<li class="active"><a>1<span class="sr-only">(current)</span></a></li>
-									<li class=><a href="#">2<span class="sr-only"></span></a></li>
-									<li class=><a href="#">3<span class="sr-only"></span></a></li>
-									<li class=><a href="#">4<span class="sr-only"></span></a></li>
-									<li class=><a href="#">5<span class="sr-only"></span></a></li>
-									<li>
-										<a href="#" aria-label="Next">
-											<span aria-hidden="true">&raquo;</span>
-										</a>
-									</li>
-								</ul>
-							<nav>
+							<ul class="pagination pagination-sm">
+								<li id="prev" style="cursor:pointer" class="disabled">
+									<a aria-label="Previous" onclick="prev()">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								<li id="1" class="active" style="cursor:pointer"><a onclick="clicked_1()">1</a></li>
+								<li id="prev_points"><a>...</a></li>
+								<li id="2" style="cursor:pointer"><a onclick="clicked_2()">2</a></li>
+								<li id="3" style="cursor:pointer"><a onclick="clicked_3()">3</a></li>
+								<li id="4" style="cursor:pointer"><a onclick="clicked_4()">4</a></li>
+								<li id="5" style="cursor:pointer"><a onclick="clicked_5()">5</a></li>
+								<li id="behind_points"><a>...</a></li>
+								<li id="6" style="cursor:pointer"><a onclick="clicked_6()">6</a></li>
+								<li id="next" style="cursor:pointer">
+									<a aria-label="Next" onclick="next()">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>

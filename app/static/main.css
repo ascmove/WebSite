@@ -1,6 +1,6 @@
 #list_myhostpital{cursor:pointer}
 #list_edf_files{cursor:pointer;display:none}
-div#lheader{background-color:#99bbbb;border-style:solid;border-color:#f0ffff}
-div#llist{background-color:#ffff99;border-style:solid;border-color:#f0ffff;height:856px}
-div#lboundary{background-color:#EEEEEE;border-style:solid;border-color:#f0ffff;}
+div#lheader{background-color:#99bbbb;border-style:solid;border-color:#f0aaaa;height:80px}
+div#llist{border-style:solid;border-color:#f0aaaa;height:856px}
+div#lboundary{background-color:#EEEEEE;border-style:solid;border-color:#f0aaaa;}
 div#pages{height:50px;padding-left:600px;}
