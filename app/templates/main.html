@@ -15,43 +15,65 @@
 		<link href="../static/for_List.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-<!--		<script type="text/javascript">
-			function click(){
-				if(document.getElementById("main").style.display == "none")
-					document.getElementById("main").style.display = "block";
-				else document.getElementById("main").style.display = "none";
-			}
-			function click_2(){
-				if(document.getElementById("test").style.display == "none")
-					document.getElementById("test").style.display = "block";
-				else document.getElementById("test").style.display = "none";
-			}
-		</script> -->
 		<div class="container-fluid">
-			<div id="lheader" style="height:100px"></div>
+			<div id="lheader" style="height:80px">
+				<div class="container-fluid" style="padding-top:20px">
+					<ul class="nav nav-pills navbar-right navbar-nav main-navigation">
+						<li role="presentation">
+							<a href="#">me</a>
+						</li>
+						<li role="presentation">
+							<a href="#">quit</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 				<div class="row">
 					<div id="llist" class="col-md-2">
 						<table class="table table-hover table-condensed">
 							<tbody>
 								<tr>
-									<td id="list_myhostpital" onclick="myhostpital()">clickthis</td>
+									<td id="list_myhostpital" onclick="myhostpital()">我的医院</td>
 								</tr>
-								<tr>
+								{% for letter in 'python' %}
+								<tr  class="list_edf_files" style="display:none">
 									<td>
-										<div id="list_edf_files">
+										<div>
 											<span>&nbsp;</span>
 											<span>&nbsp;</span>
-											clickthis
+											{{letter}}
 										</div>
 									</td>
 								</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>
 					<div id="lboundary" class="col-md-10" >
 						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-						<div id="main" style="left:300px;width:800px;height:800px;display:block"></div>
-						<div id="pages">
+						<div id="main" style="left:300px;width:800px;height:800px;display:block">
+						</div>
+						<div id="pages" class="container">
+							<nav>
+								<ul class="pagination pagination-sm">
+									<li>
+										<a href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li class="active"><a>1<span class="sr-only">(current)</span></a></li>
+									<li class=><a href="#">2<span class="sr-only"></span></a></li>
+									<li class=><a href="#">3<span class="sr-only"></span></a></li>
+									<li class=><a href="#">4<span class="sr-only"></span></a></li>
+									<li class=><a href="#">5<span class="sr-only"></span></a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							<nav>
+						</div>
 					</div>
 				</div>
 		</div>
