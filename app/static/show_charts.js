@@ -23,7 +23,7 @@ window.onload=function(){
 					yAxis: {
 						type:'value',
 						axisTick:{show:false},
-						min:0,
+						min:-50,
 						max:600,
 						//interval:65534,
 						//axisLabel:{
@@ -350,7 +350,7 @@ function show(filename){
 			},
 			series:[{
 				name:'电位1',
-				data:data["EEG FP1-F7"]
+				data:data["EEG Fp1-F7"]
 			},{
 				name:'电位2',
 				data:data["EEG F7-T3"]
@@ -404,10 +404,10 @@ function show(filename){
 				data:data["EEG Cz-Pz"]
 			},{
 				name:'电位19',
-				data:data["EEG EKG"]
+				data:data["ECG EKG"]
 			},{
 				name:'电位20',
-				data:data.data
+				data:[]
 			}]
 		})
 	});

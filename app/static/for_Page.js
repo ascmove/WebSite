@@ -1,47 +1,35 @@
 var currentPage = 1;
 var max=6;
 var min=1;
-function clicked_1(){
-	document.getElementById(""+currentPage).className="";
-	currentPage=1;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
-}
-function clicked_2(){
-	document.getElementById(""+currentPage).className="";
-	currentPage=2;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
-}
-function clicked_3(){
-	document.getElementById(""+currentPage).className="";
-	currentPage=3;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
-}
-function clicked_4(){
-	document.getElementById(""+currentPage).className="";
-	currentPage=4;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
-}
-function clicked_5(){
-	document.getElementById(""+currentPage).className="";
-	currentPage=5;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
-}
 function next(){
-	document.getElementById(""+currentPage).className="";
-	currentPage+=1;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
+	if(currentPage==max)
+		return;
+	cur = currentPage+1;
+	if(currentPage>=3){
+		document.getElementById("prev_points").style.display="";
+		pages_show(currentPage,currentPage+1);
+		}
+	if(currentPage>=max-2){
+		document.getElementById("behind_points").style.display="none";
+	}
+	changeCurrentPage(cur);
 }
 function prev(){
-	document.getElementById(""+currentPage).className="";
-	currentPage-=1;
-	document.getElementById(""+currentPage).className="active";
-	forRange();
+	if(currentPage==1)
+		return;
+	cur = currentPage-1;
+	if(currentPage<=max-2){
+		document.getElementById("behind_points").style.display="";
+		pages_show(currentPage-1,currentPage);
+	}
+	if(currentPage<=3){
+		document.getElementById("prev_points").style.display="none";
+	}
+	changeCurrentPage(cur);
+}
+function clicked(event){
+	cur = event.target.id;
+	changeCurrentPage(cur);
 }
 function forRange(){
 	if (currentPage==max)
@@ -51,8 +39,21 @@ function forRange(){
 		document.getElementById("prev").className="disabled";
 	else document.getElementById("prev").className="";
 }
-function do_final(){
-	if(currentPage > 5){
-		
+function changeCurrentPage(page){
+	document.getElementById(""+currentPage+"_").className="";
+	currentPage=page;
+	document.getElementById(""+currentPage+"_").className="active";
+	forRange();
+}
+function pages_show(f,b){
+	for (i=2;i<=max-1;i++){
+		if(i==f || i==b){
+			document.getElementById(""+i+"_").style.display="";
+		}
+		else document.getElementById(""+i+"_").style.display="none";
 	}
+	if(currentPage==max-1)
+		document.getElementById(""+max-2+"_").style.display="";
+	if(currentPage==2)
+		document.getElementById(""+3+"_").style.display="";
 }
