@@ -42,6 +42,7 @@ class EDFReader:
 
     def read_header(self):
         self.header = edf_h = edf_header(self.file)
+        self.label = edf_h['label']
         self.dig_min = edf_h['digital_min']
         self.phys_min = edf_h['physical_min']
         phys_range = edf_h['physical_max'] - edf_h['physical_min']
@@ -50,19 +51,31 @@ class EDFReader:
 
     def read_data_record(self):
         result = [ ]
-       # signal = [ ]
+        signal = [ ]
+        postdata = {}
         dig_min, phys_min, gain = self.dig_min, self.phys_min, self.gain
-        nsamp = self.header['n_samples_per_record'][0]
-        samples = self.file.read(nsamp*2)
-        note = []
-        dig = np.fromstring(samples,'<i2').astype(np.float32)
-        for n in range(len(dig)):
-            phys_value = (dig[n] - dig_min[0] )*gain[0] + phys_min[0]
-            note.append(phys_value)
-        #a=json.dumps(note)
-        return note
+        label = self.label
+        for nsamp in self.header['n_samples_per_record']:
+            samples = self.file.read(nsamp*2)
+            if len(samples) != nsamp*2:
+                print r'End Of EDF/EDF+ Data'
+                break
+            result.append(samples)
+        for (i, samples) in enumerate(result):
+            note = [ ]
+            dig = np.fromstring(samples,'<i2').astype(np.float32)
+            for n in range(len(dig)):
+                phys_value = (dig[n] - dig_min[i] )*gain[i] + phys_min[i]+i*30
+                note.append(phys_value)
+            signal.append(note)
+        for n_signal in range(self.header['num_signal']):
+            postdata[label[n_signal]]=signal[n_signal]
+        return postdata 
+        print postdata
 def load_edf(edffile):
     f = open(edffile,'rb')
     reader = EDFReader(f)
     reader.read_header()
     return  reader.read_data_record()
+	
+load_edf("D:/uploadfiles/nicolet.edf")

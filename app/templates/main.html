@@ -14,6 +14,7 @@
 		<script src="../static/for_Page.js"></script>
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../static/main.css" rel="stylesheet" type="text/css">
+		<!--<link href="../static/upload.css" rel="stylesheet" type="text/css">-->
 	</head>
 	<body>
 			<div id="lheader">
@@ -29,28 +30,38 @@
 		<div class="container-fluid">
 				<div class="row">
 					<div id="llist" class="col-md-2">
-						<table class="table table-hover table-condensed">
-							<tbody>
-								<tr>
-									<td id="list_myhostpital" onclick="myhostpital()">我的医院</td>
-								</tr>
-								{% for file in files %}
-								<tr  class="list_edf_files" style="display:none">
-									<td>
-										<div>
-											<span>&nbsp;</span>
-											<span>&nbsp;</span>
-											{{file}}
-										</div>
-									</td>
-								</tr>
-								{% endfor %}
-							</tbody>
-						</table>
+						<div style="height:800px">
+							<table class="table table-hover table-condensed">
+								<tbody>
+									<tr>
+										<td id="list_myhostpital" onclick="myhostpital()">我的医院</td>
+									</tr>
+									{% for file in files %}
+									<tr  class="list_edf_files" onclick="show('{{file}}')" style="display:none">
+										<td id="edf_file">
+											<div>
+												<span>&nbsp;</span>
+												<span>&nbsp;</span>
+												{{file}}
+											</div>
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+						<div>
+							<form method="post" enctype="multipart/form-data" action="http://127.0.0.1:5000/main">
+								<div class="edf_upload">
+									<input type="file" name="edf_upload" accept="text/edf">
+								</div>
+								<input type="submit" name="Submit" value="添加"/>
+							</form>
+						</div>
 					</div>
 					<div id="lboundary" class="col-md-10" >
 						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-						<div id="main" style="left:50px;width:1600px;height:800px;display:block">
+						<div id="main" style="width:1200px;height:800px;display:block">
 						</div>
 						<div id="pages" class="container">
 							<ul class="pagination pagination-sm">
