@@ -1,4 +1,7 @@
-window.onload=function(){
+fileFalse=false;
+window.onload=function (){
+	if(fileFalse)
+		alert("请上传EDF格式的文件")；
 	var myChart = echarts.init(document.getElementById('main'));
 //				$.get('http://127.0.0.1:5000/getdata').done(function (data) {
 				myChart.setOption({
@@ -339,6 +342,7 @@ window.onload=function(){
 			//使用刚指定的配置项和数据显示图表
 			//myChart.setOption(option);
 }
+//window.onload=setEcharts();
 
 function show(page,filename=null){
 	url = 'http://127.0.0.1:5000/getdata?filename='+filename;

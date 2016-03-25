@@ -17,6 +17,11 @@
 		<!--<link href="../static/upload.css" rel="stylesheet" type="text/css">-->
 	</head>
 	<body>
+		{% if filefalse %}
+		<script type="text/javascript">
+			fileFalse = true;
+		</script>
+		{% endif %}
 			<div id="lheader">
 					<ul class="nav nav-pills navbar-right navbar-nav main-navigation" style="padding-top:20px;padding-right:15px">
 						<li role="presentation">
@@ -51,9 +56,10 @@
 							</table>
 						</div>
 						<div>
-							<form method="post" enctype="multipart/form-data" action="http://127.0.0.1:5000/main">
+							<form method="post" enctype="multipart/form-data" action="http://127.0.0.1:5000/main" onsubmit="verifyfiles()">
+								<!--<input name="uid" type="hidden" value="{{uid}}"/>-->
 								<div class="edf_upload">
-									<input type="file" name="edf_upload" accept="text/edf">
+									<input type="file" name="edf_upload" accept="edf">
 								</div>
 								<input type="submit" name="Submit" value="添加"/>
 							</form>
@@ -61,8 +67,7 @@
 					</div>
 					<div id="lboundary" class="col-md-10" >
 						<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-						<div id="main" style="width:1200px;height:800px;display:block">
-						</div>
+						<div id="main" style="width:1200px;height:800px;display:block"></div>
 						<div id="pages" class="container-fluid">
 							<ul class="pagination pagination-sm">
 								<li id="prev" style="cursor:pointer" class="disabled">

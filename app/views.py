@@ -4,6 +4,8 @@ from werkzeug import secure_filename
 from checkfiles import *
 from edfread import *
 import psycopg2
+import re
+import random
 @app.route('/', methods=['GET'])
 def index():
 	return redirect(url_for('login'))
@@ -24,7 +26,8 @@ def login():
 			session['remember_me'] = None
 		if(results):
 			if(password == results[0][1]):
-				return render_template('main.html')
+				#session['uid']=random.randint(1,7895481)
+				return redirect(url_for('main'))
 			else:
 				return render_template('login.html',wrong=1)
 	if 'username' in session and 'remember_me' in session:
@@ -44,14 +47,20 @@ def register():
 		conn.commit()
 		cur.close()
 		conn.close()
-		return render_template('login.html')
+		return redirect(url_for('login'))
 	return render_template('register.html')
 @app.route('/main', methods=['GET', 'POST'])
 def main():
-	if request.method == 'POST':
-		f = request.files['edf_upload']
-		f.save("D:\\"+secure_filename(f.filename))
+	#uid=random.randint(1,7895481)
+	#session['uid']=uid
 	list=getlist()
+	if request.method == 'POST':
+		#if request.form["uid"] == str(session['uid']):
+		f = request.files['edf_upload']
+		if not re.match('fde.',f.filename[::-1]):
+			return render_template('main.html',files=list,filefalse=1)
+		f.save("D:\\"+secure_filename(f.filename))
+			#uid = random.randint(1,7895481)
 	return render_template('main.html',files=list)
 @app.route('/getdata',methods=['GET'])
 def data():
