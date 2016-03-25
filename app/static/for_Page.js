@@ -13,6 +13,7 @@ function next(){
 		document.getElementById("behind_points").style.display="none";
 	}
 	changeCurrentPage(cur);
+	show(currentPage);
 }
 function prev(){
 	if(currentPage==1)
@@ -26,6 +27,7 @@ function prev(){
 		document.getElementById("prev_points").style.display="none";
 	}
 	changeCurrentPage(cur);
+	show(currentPage);
 }
 function clicked(event,filename){
 	cur = event.target.id;

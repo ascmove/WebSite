@@ -1,7 +1,7 @@
 fileFalse=false;
 window.onload=function (){
 	if(fileFalse)
-		alert("请上传EDF格式的文件")；
+		alert("请上传EDF格式的文件");
 	var myChart = echarts.init(document.getElementById('main'));
 //				$.get('http://127.0.0.1:5000/getdata').done(function (data) {
 				myChart.setOption({
@@ -75,7 +75,7 @@ window.onload=function (){
 						//}
 					},
 					series: [{
-						name: '电位1',
+						name: 'Fp1-F7',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -88,7 +88,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位2',
+						name: 'F7-T3',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -101,7 +101,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位3',
+						name: 'T3-T5',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -114,7 +114,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位4',
+						name: 'T5-O1',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -127,7 +127,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位5',
+						name: 'Fp2-F8',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -140,7 +140,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位6',
+						name: 'F8-T4',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -153,7 +153,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位7',
+						name: 'T4-T6',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -166,7 +166,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位8',
+						name: 'T6-O2',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -179,7 +179,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位9',
+						name: 'Fp1-F3',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -192,7 +192,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位10',
+						name: 'F3-C3',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -205,7 +205,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位11',
+						name: 'C3-P3',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -218,7 +218,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位12',
+						name: 'P3-O1',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -231,7 +231,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位13',
+						name: 'Fp2-F4',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -244,7 +244,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位14',
+						name: 'F4-C4',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -257,7 +257,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位15',
+						name: 'C4-P4',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -270,7 +270,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位16',
+						name: 'P4-O2',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -283,7 +283,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位17',
+						name: 'Fz-Cz',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -296,7 +296,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位18',
+						name: 'Cz-Pz',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -309,7 +309,7 @@ window.onload=function (){
 							type:'dotted'
 						}
 					},{
-						name: '电位19',
+						name: 'ECG EKG',
 						type: 'line',
 						smooth:false,
 						itemStyle:{
@@ -345,7 +345,8 @@ window.onload=function (){
 //window.onload=setEcharts();
 
 function show(page,filename=null){
-	url = 'http://127.0.0.1:5000/getdata?filename='+filename;
+	alert(""+filename+page);
+	url = 'http://127.0.0.1:5000/getdata?filename='+filename+'&page='+page;
 	myChart = echarts.getInstanceByDom(document.getElementById('main'));
 	$.get(url).done(function (data) {
 		myChart.setOption({
@@ -353,61 +354,61 @@ function show(page,filename=null){
 				data:[]
 			},
 			series:[{
-				name:'电位1',
+				name:'Fp1-F7',
 				data:data["EEG Fp1-F7"]
 			},{
-				name:'电位2',
+				name:'F7-T3',
 				data:data["EEG F7-T3"]
 			},{
-				name:'电位3',
+				name:'T3-T5',
 				data:data["EEG T3-T5"]
 			},{
-				name:'电位4',
+				name:'T5-O1',
 				data:data["EEG T5-O1"]
 			},{
-				name:'电位5',
+				name:'Fp2-F8',
 				data:data["EEG Fp2-F8"]
 			},{
-				name:'电位6',
+				name:'F8-T4',
 				data:data["EEG F8-T4"]
 			},{
-				name:'电位7',
+				name:'T4-T6',
 				data:data["EEG T4-T6"]
 			},{
-				name:'电位8',
+				name:'T6-O2',
 				data:data["EEG T6-O2"]
 			},{
-				name:'电位9',
+				name:'Fp1-F3',
 				data:data["EEG Fp1-F3"]
 			},{
-				name:'电位10',
+				name:'F3-C3',
 				data:data["EEG F3-C3"]
 			},{
-				name:'电位11',
+				name:'C3-P3',
 				data:data["EEG C3-P3"]
 			},{
-				name:'电位12',
+				name:'P3-O1',
 				data:data["EEG P3-O1"]
 			},{
-				name:'电位13',
+				name:'Fp2-F4',
 				data:data["EEG Fp2-F4"]
 			},{
-				name:'电位14',
+				name:'F4-C4',
 				data:data["EEG F4-C4"]
 			},{
-				name:'电位15',
+				name:'C4-P4',
 				data:data["EEG C4-P4"]
 			},{
-				name:'电位16',
+				name:'P4-O2',
 				data:data["EEG P4-O2"]
 			},{
-				name:'电位17',
+				name:'Fz-Cz',
 				data:data["EEG Fz-Cz"]
 			},{
-				name:'电位18',
+				name:'Cz-Pz',
 				data:data["EEG Cz-Pz"]
 			},{
-				name:'电位19',
+				name:'ECG EKG',
 				data:data["ECG EKG"]
 			},{
 				name:'电位20',

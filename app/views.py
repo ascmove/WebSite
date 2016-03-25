@@ -6,6 +6,7 @@ from edfread import *
 import psycopg2
 import re
 import random
+PAGE = 0
 @app.route('/', methods=['GET'])
 def index():
 	return redirect(url_for('login'))
@@ -54,6 +55,9 @@ def main():
 	#uid=random.randint(1,7895481)
 	#session['uid']=uid
 	list=getlist()
+	global PAGE
+	if PAGE>0:
+		return render_template('main.html',files=list,pageAccount=PAGE)
 	if request.method == 'POST':
 		#if request.form["uid"] == str(session['uid']):
 		f = request.files['edf_upload']
@@ -64,10 +68,17 @@ def main():
 	return render_template('main.html',files=list)
 @app.route('/getdata',methods=['GET'])
 def data():
-	if(request.args.get('filename')):
+	if(request.args.get('filename')!='null'):
 		session['filename']=request.args.get('filename')
 	filename = session['filename']
 	path = "D:/uploadfiles/"+filename
 	list=load_edf(path)
-	return jsonify(list)
+	page=request.args.get("page")
+	return jsonify(list[int(page)-1])
+	#return jsonify(list[2])
 	#return list
+@app.route('/showPage')
+def showPage():
+	global PAGE
+	PAGE=9
+	return redirect(url_for('main'))
