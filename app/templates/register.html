@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "zh-CN">
+	<head>
+		<meta charset = "utf-8">
+		<meta http-equiv="X-UA-Compatible" content = "IE=edge">
+		<meta name = "viewpor" content = "width=device-width,initial-scale=1">
+		<meta name="description" content>
+		<title>注册NeuroTech</title>
+		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../static/signin.css" rel="stylesheet" type="text/css">
+		<!--<script src="../static/register.js"></script> -->
+	</head>
+	<body>
+		<div class=“container”>
+			<form class="form-signin" action="{{url_for('register')}}" method="post">
+				<h2 class="form-signin-heading" id="h2">请输入注册信息</h2>
+				<label for="account" class="sr-only">医生编号</label>
+				<input id="account" name="username" class="form-control" placeholder="医生编号" required autofocus>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="inputPassword" name="password" class="form-control" placeholder="密码" required>
+				<select class="form-control" id="hospital" name="hospital">
+					<option value="浙大附属" selected="selected">浙江大学附属医院</option>
+					<option value="湘雅">湘雅医院</option>
+					<option value="协和">协和医院</option>
+				</select>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
+			</form>
+			</div>
+	</body>
+</html>

@@ -27,9 +27,10 @@ function prev(){
 	}
 	changeCurrentPage(cur);
 }
-function clicked(event){
+function clicked(event,filename){
 	cur = event.target.id;
 	changeCurrentPage(cur);
+	show(currentPage);
 }
 function forRange(){
 	if (currentPage==max)

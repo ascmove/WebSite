@@ -340,7 +340,7 @@ window.onload=function(){
 			//myChart.setOption(option);
 }
 
-function show(filename){
+function show(page,filename=null){
 	url = 'http://127.0.0.1:5000/getdata?filename='+filename;
 	myChart = echarts.getInstanceByDom(document.getElementById('main'));
 	$.get(url).done(function (data) {
